@@ -74,6 +74,26 @@ nav h1 a {
     width: calc(50% - 80px);
 }
 
+/* Hide skip map link (for screen readers) */
+#skip-map {
+	position: absolute;
+	top: auto;
+	left:: -10000px;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+/* Hide heading labels */
+.aria-headings {
+	position: absolute;
+	top: auto;
+	left:: -10000px;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
 /* Display list items side by side */
 #breadcrumb li {
     display: inline;
@@ -128,6 +148,12 @@ nav h1 a {
   margin: 10px;
   padding: 0 10px;
   width: 200px;
+}
+
+#neighborhoods-select:focus, #cuisines-select:focus {
+	color: #ff4d4d;
+	text-decoration: none;
+
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -279,6 +305,8 @@ nav h1 a {
   color: #666;
 }
 
+.
+
 /*------------------------- Breakpoints --------------------*/
 @media screen and (min-width: 300px) and (max-width: 550px) {
 	header nav {
@@ -366,9 +394,6 @@ nav h1 a {
 		height: auto;
 		width: calc(100% - 20px);
 		padding: 10px;
-	}
-
-	header nav h1 a {
 	}
 
 	#breadcrumb {

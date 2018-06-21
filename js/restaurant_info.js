@@ -6,6 +6,7 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {
   initMap();
+  addServiceWorker();
 });
 
 /**
@@ -193,4 +194,17 @@ getParameterByName = (name, url) => {
   if (!results[2])
     return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+/* Register a service worker*/
+addServiceWorker = () => {
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js', {scope: './'})
+    .then(function(registration) {
+      console.log('Service Worker Registered');
+    })
+    .catch(function(err) {
+      console.log('Service Worker Failed to Register');
+    })
+  }
 }

@@ -57,12 +57,12 @@ self.addEventListener('activate', function(e) {
 })
 
 self.addEventListener('fetch', function(e) {
+	const url = new URL(e.request.url)
+
   console.log("[ServiceWorker] Fetching", e.request.url);
 
-  if(navigator.onLine) {
-      return(e.request);
-  }
-
+  if (self.location.origin !== url.origin)
+  return;
   e.respondWith(
     caches.match(e.request).then(function(response) {
       if(response) {

@@ -31,18 +31,15 @@ let cacheFiles = [
 ]
 
 self.addEventListener('install', function(e) {
-  console.log("[ServiceWorker] Installed")
 
   e.waitUntil(
     caches.open(cacheName).then(function(cache) {
-      console.log("[ServiceWorker] Caching cacheFiles");
       return cache.addAll(cacheFiles);
     })
   )
 })
 
 self.addEventListener('activate', function(e) {
-  console.log("[ServiceWorker] Activated")
 
   e.waitUntil(
     caches.keys().then(function(cacheNames) {
@@ -59,14 +56,11 @@ self.addEventListener('activate', function(e) {
 self.addEventListener('fetch', function(e) {
 	const url = new URL(e.request.url)
 
-  console.log("[ServiceWorker] Fetching", e.request.url);
-
   if (self.location.origin !== url.origin)
   return;
   e.respondWith(
     caches.match(e.request).then(function(response) {
       if(response) {
-        console.log('[ServiceWorker] Found in cache', e.request.url);
         return response;
       }
 

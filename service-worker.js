@@ -7,16 +7,26 @@ let cacheFiles = [
   './js/dbhelper.js',
   './js/restaurant_info.js',
   './js/main.js',
-  './img/1.jpg',
-  './img/2.jpg',
-  './img/3.jpg',
-  './img/4.jpg',
-  './img/5.jpg',
-  './img/6.jpg',
-  './img/7.jpg',
-  './img/8.jpg',
-  './img/9.jpg',
-  './img/10.jpg',
+  './img/1_1x.jpg',
+  './img/2_1x.jpg',
+  './img/3_1x.jpg',
+  './img/4_1x.jpg',
+  './img/5_1x.jpg',
+  './img/6_1x.jpg',
+  './img/7_1x.jpg',
+  './img/8_1x.jpg',
+  './img/9_1x.jpg',
+  './img/10_1x.jpg',
+  './img/1_2x.jpg',
+  './img/2_2x.jpg',
+  './img/3_2x.jpg',
+  './img/4_2x.jpg',
+  './img/5_2x.jpg',
+  './img/6_2x.jpg',
+  './img/7_2x.jpg',
+  './img/8_2x.jpg',
+  './img/9_2x.jpg',
+  './img/10_2x.jpg',
   './data/restaurants.json'
 ]
 
@@ -59,7 +69,7 @@ self.addEventListener('fetch', function(e) {
         console.log('[ServiceWorker] Found in cache', e.request.url);
         return response;
       }
-      
+
       let requestClone = e.request.clone();
 
       fetch(requestClone).then(function(response) {
